@@ -1,0 +1,22 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.common.RedisProperties",
+      "name": "recom.redis",
+      "type": "com.common.RedisProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.common.RedisProperties",
+      "name": "recom.redis.ip",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.common.RedisProperties",
+      "name": "recom.redis.name",
+      "type": "java.lang.String"
+    }
+  ]
+}

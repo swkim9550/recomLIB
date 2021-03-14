@@ -1,0 +1,5 @@
+META-INF\spring-autoconfigure-metadata.properties
+com\common\RedisConfiguration.class
+META-INF\spring-configuration-metadata.json
+com\common\RedisConfig.class
+com\common\RedisProperties.class
