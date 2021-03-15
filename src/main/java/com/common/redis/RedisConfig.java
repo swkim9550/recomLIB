@@ -1,4 +1,4 @@
-package com.common;
+package com.common.redis;
 
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
@@ -12,6 +12,15 @@ public class RedisConfig {
     private String ip;
     private String name;
     private Set<HostAndPort> hosts;
+    private JedisCluster jedisCluster;
+
+    public JedisCluster getJedisCluster() {
+        return jedisCluster;
+    }
+
+    public void setJedisCluster(JedisCluster jedisCluster) {
+        this.jedisCluster = jedisCluster;
+    }
 
     public Set<HostAndPort> getHosts() {
         return hosts;
@@ -38,6 +47,7 @@ public class RedisConfig {
             hosts.add(new HostAndPort(host,port));
         }
         setHosts(hosts);
+        redisInit();
     }
 
 
@@ -54,7 +64,7 @@ public class RedisConfig {
         return "{IP="+ip +"  name="+name+"}";
     }
 
-    public JedisCluster init(){
+    public void redisInit(){
         JedisCluster jedisCluster = null;
         try{
             JedisPoolConfig config = new JedisPoolConfig();
@@ -62,11 +72,9 @@ public class RedisConfig {
             config.setMaxIdle(100 * 60);
             config.setMaxWaitMillis(5000);
             config.setTestOnBorrow(true);
-
-            jedisCluster = new JedisCluster(hosts,5000,1000,1,config);
+            setJedisCluster(new JedisCluster(hosts,5000,1000,1,config));
         }catch (Exception e){
             System.out.println(e.toString());
         }
-        return jedisCluster;
     }
 }

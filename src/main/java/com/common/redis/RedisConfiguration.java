@@ -1,4 +1,4 @@
-package com.common;
+package com.common.redis;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
